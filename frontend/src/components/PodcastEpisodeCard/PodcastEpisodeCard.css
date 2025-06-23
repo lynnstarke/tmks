@@ -1,0 +1,71 @@
+.episode-card {
+    width: 100%;
+    height: 24em;
+    max-width: 400px;
+    background: #3a2c23;
+    border-radius: 16px;
+    padding: 0.4rem;
+    box-shadow: 0 0 0 2px #3a2c23;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+  }
+
+  .thumbnail {
+    position: relative;
+    height: 220px;
+    border-radius: 12px;
+  }
+
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .logo-image {
+    position: absolute;
+    top: 16px;
+    left: 10px;
+    display: block;
+    max-width: 3em;
+    max-height: 3em;
+    border-radius: 0.25em;
+  }
+
+  .quote-banner {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: #000;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    line-height: 1.2;
+  }
+
+  .episode-meta {
+    padding: 0.8rem 1rem;
+    text-align: left;
+  }
+
+  .episode-date {
+    font-size: 0.9rem;
+    font-weight: 100;
+    color: #ccc;
+    text-align: left;
+    margin-bottom: -1rem;
+    margin-top: -1px;
+  }
+
+  .episode-subtitle {
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+    font-weight: 500;
+    color: #fff;
+    text-align: left;
+  }

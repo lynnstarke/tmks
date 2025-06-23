@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap');
+
+.shorts-card {
+  width: 100%;
+  max-width: 210px;           /* adjust as you like */
+  background: #3a2c23;
+  padding: 0.75rem;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #3a2c23;
+  font-family: 'Syne', sans-serif;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.shorts-thumbnail {
+  position: relative;
+  width: 100%;
+  padding-top: 177.78%;       /* 16:9 portrait (9/16 = .5625 → 56.25% / landscape reversed → 177.78% ) */
+  overflow: hidden;
+}
+
+.shorts-thumbnail img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shorts-logo {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 48px;
+  height: 48px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 4px;
+  object-fit: contain;
+}
+
+.shorts-quote {
+  padding-top: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-weight: 500;
+  text-align: left;
+  white-space: pre-wrap;
+  font-family: 'Poppins';
+}
+
+/* optional: if you want an emoji at the end to stay same size */
+.shorts-quote img, .shorts-quote svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+}

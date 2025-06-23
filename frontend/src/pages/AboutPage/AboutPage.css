@@ -1,0 +1,89 @@
+/* Wrapper for the about page */
+.about {
+  width: 100%;
+  text-align: center;
+  background-color: #0E0E0E;
+  color: #E8E2DD;
+}
+
+/* More specific header selector to override homepage h1 styles */
+.about .about-header {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20vh;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  text-align: center;
+  box-sizing: border-box;
+  margin-bottom: 20rem;
+  margin-top: 8rem;
+}
+
+
+/* Stronger selector to win over .home-header h1 */
+.about .about-header h1 {
+  font-size: 6rem;
+  line-height: 1.1;
+  font-weight: 600;
+  color: #C8FF00;
+  font-family: 'Syne', sans-serif;
+  margin-bottom: 1rem;
+  word-break: normal;
+  white-space: normal;
+  letter-spacing: -1.5px;
+}
+
+/* Responsive breakpoints */
+
+/* Large desktops / 4K */
+@media (max-width: 2560px) {
+  .about .about-header h1 {
+    font-size: 6rem;
+  }
+}
+
+/* Desktops / small laptops */
+@media (max-width: 1440px) {
+  .about .about-header h1 {
+    font-size: 5rem;
+  }
+}
+
+/* Tablets / landscape phones */
+@media (max-width: 1024px) {
+  .about .about-header {
+    padding-top: 10vh;
+  }
+
+  .about .about-header h1 {
+    font-size: 5rem;
+  }
+}
+
+/* Portrait tablets / large phones */
+@media (max-width: 768px) {
+  .about .about-header {
+    height: auto;
+    padding: 8vh 2rem;
+  }
+
+  .about .about-header h1 {
+    font-size: 4rem;
+    letter-spacing: -1px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .about .about-header {
+    padding: 12vh 1rem;
+  }
+
+  .about .about-header h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+}

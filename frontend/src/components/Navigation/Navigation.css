@@ -1,0 +1,134 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    width: 100%;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbarLeft {
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+}
+
+.navbarLogo img {
+    height: 40px;
+    width: auto;
+}
+
+.navbarLinks {
+    font-family: Syne;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    font-size: medium;
+}
+
+.navbarLinks a {
+    font-family: Syne;
+    text-decoration: none;
+    color: #E8E2DD;
+    font-size: large;
+}
+
+.navbarActions {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+.navbarActions img {
+    height: 1.5em;
+    width: auto;
+}
+
+.nav-link {
+    color: #C8FF00;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+.nav-link:hover {
+    color: #C8FF00;
+}
+
+.nav-link.active {
+    color: #C8FF00;
+    text-decoration: underline;
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.burger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+}
+
+/* Hide/Show animation */
+.navbar {
+  transition: top 0.3s ease-in-out;
+}
+
+.navbar.hide {
+  top: -100px;
+}
+
+.navbar.show {
+  top: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .navbarLeft {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .navbarLinks {
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #000;
+      padding: 1rem 2rem;
+      z-index: 999;
+      width: max-content;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .navbarLinks.open {
+      display: flex;
+    }
+
+    .burger {
+      display: flex;
+    }
+
+    .navbarActions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+  }

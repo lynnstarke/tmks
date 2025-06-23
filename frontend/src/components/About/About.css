@@ -1,0 +1,9 @@
+.about {
+    background-color: #0E0E0E;
+    min-height: 100vh;
+    color: #E8E2DD;
+  }
+
+  .content {
+    padding: 6rem 1rem 10rem;
+  }

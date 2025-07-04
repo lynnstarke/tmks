@@ -33,10 +33,6 @@ export default function About() {
             </p>
         </AboutCard>
       </main>
-
-      <footer className='footer'>
-        <Footer />
-      </footer>
     </div>
   );
 }

@@ -1,0 +1,49 @@
+.contact-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10rem;
+    padding: 10rem 1rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #E8E2DD;
+    box-sizing: border-box;
+  }
+
+  .contact-copy {
+    margin-top: 4rem;
+  }
+
+  .contact-copy h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 3rem;
+    color: #C8FF00;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-copy p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  /* Responsive: stack on mobile */
+  @media screen and (max-width: 768px) {
+    .contact-page {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 6rem 2rem 2rem;
+      text-align: center;
+    }
+
+    .contact-copy p {
+      margin-bottom: 1rem;
+    }
+  }

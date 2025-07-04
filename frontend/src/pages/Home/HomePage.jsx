@@ -8,28 +8,44 @@ import Footer from '../../components/Footer/Footer';
 
 export default function HomePage() {
   const [dive, setDive] = useState(false);
+  const [showCaveAnimation, setShowCaveAnimation] = useState(false);
 
   const handleDive = () => {
-    setDive(true);
+    // Start black hole animation immediately
+    setShowCaveAnimation(true);
+
+    // Start hiding header and scrolling near the end of the black hole animation
     setTimeout(() => {
+      setDive(true);
+      // Scroll to podcasts section
       document.querySelector('.content').scrollIntoView({ behavior: 'smooth' });
-    }, 800);
+    }, 1500); // Start scroll at 1.5s (75% through 2s animation)
+
+    // Hide black hole animation after it completes
+    setTimeout(() => {
+      setShowCaveAnimation(false);
+    }, 2000); // Hide after full 2s animation
   };
 
-  // Re-show header if user scrolls back to top
   useEffect(() => {
     const onScroll = () => {
       if (window.scrollY < 100) {
         setDive(false);
       }
     };
-
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
     <div className='home'>
+      {/* Static overlays */}
+      <div className="top-blur-overlay" />
+      <div className="bottom-blur-overlay" />
+
+      {/* Cave Animation Overlay */}
+      <div className={`cave-overlay ${showCaveAnimation ? 'active' : ''}`} />
+
       <AnimatePresence>
         {!dive && (
           <motion.header
@@ -38,9 +54,57 @@ export default function HomePage() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 4, opacity: 0, transition: { duration: 1 } }}
           >
-            <h1>The Mancave<br />Studios</h1>
-            <p>Where football, culture and stories collide.</p>
-            <button onClick={handleDive}>Discover Now</button>
+            <div className="header-content">
+              {/* Main title with split animation */}
+              <motion.div className="title-container">
+                <motion.h1
+                  className="main-title"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4, duration: 0.8 }}
+                >
+                  <motion.span
+                    className="title-line title-line-1"
+                    initial={{ x: -100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
+                  >
+                    The Mancave
+                  </motion.span>
+                  <motion.span
+                    className="title-line title-line-2"
+                    initial={{ x: 100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
+                  >
+                    Studios
+                  </motion.span>
+                </motion.h1>
+              </motion.div>
+
+              {/* Subtitle */}
+              <motion.p
+                className="subtitle"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 0.6, y: 0 }}
+                transition={{ delay: 1.4, duration: 0.6 }}
+              >
+                Where football, culture and stories collide.
+              </motion.p>
+
+              {/* Enhanced CTA button */}
+              <motion.div
+                className="cta-container"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.8, duration: 0.6 }}
+              >
+                <button className="discover-btn" onClick={handleDive}>
+                  <span className="btn-text">Discover Now</span>
+                  <div className="btn-gradient" />
+                </button>
+              </motion.div>
+            </div>
           </motion.header>
         )}
       </AnimatePresence>
@@ -58,9 +122,7 @@ export default function HomePage() {
       </main>
 
       <footer className='footer'>
-        <div>
-          <Footer />
-        </div>
+        <Footer />
       </footer>
     </div>
   );

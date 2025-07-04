@@ -1,36 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+/* index.css or App.css */
 
-
-body {
+/* make sure html/body fill the screen */
+html, body {
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif, 'Poppins', 'Syne';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #483A2F;
+  padding: 0;
   box-sizing: border-box;
 }
 
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+               'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+               sans-serif, 'Poppins', 'Syne';
+  background-color: #483A2F;
+  position: relative;
+  z-index: 0;
+}
+
+/* TOP overlay: blur + black gradient that sits behind everything */
 body::before {
   content: '';
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100vw;
-  height: 300vh;
+  height: 150vh;            /* ↑ extend the top blur down further */
   pointer-events: none;
-  z-index: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.3), transparent);
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.96) 0%,
+    rgba(0,0,0,0.3) 60%,
+    transparent 100%
+  );
   backdrop-filter: blur(20px);
 }
 
-#root {
-  position: relative;
-  z-index: 1;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* BOTTOM overlay: mirror of the top, fading up from the bottom */
+body::after {
+  content: '';
+  position: fixed;
+  bottom: 0; left: 0;
+  width: 100vw;
+  height: 30vh;            /* adjust as needed */
+  pointer-events: none;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.96) 0%,
+    rgba(0,0,0,0.3) 60%,
+    transparent 100%
+  );
+  backdrop-filter: blur(20px);
 }

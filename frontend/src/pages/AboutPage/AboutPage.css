@@ -2,8 +2,6 @@
 .about {
   width: 100%;
   text-align: center;
-  background-color: #0E0E0E;
-  color: #E8E2DD;
 }
 
 /* More specific header selector to override homepage h1 styles */

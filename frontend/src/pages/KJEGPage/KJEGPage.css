@@ -1,0 +1,1186 @@
+.kjeg-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8rem 1rem 2rem;
+  color: white;
+  min-height: 100vh;
+}
+
+/* BANNER SECTION - RESPONSIVE */
+.kjeg-banner-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1255px;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+.kjeg-banner-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 25px solid #2B221C;
+  box-shadow: 0 16px 64px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease;
+  aspect-ratio: 16/9;
+}
+
+.kjeg-banner-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+}
+
+.kjeg-banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  border: none;
+  transition: transform 0.6s ease;
+}
+
+.kjeg-banner-container:hover .kjeg-banner {
+  transform: scale(1.03);
+}
+
+.kjeg-banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.1) 40%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  pointer-events: none;
+}
+
+.kjeg-logo-container {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  z-index: 3;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.kjeg-logo {
+  width: clamp(120px, 15vw, 180px) !important;
+  height: clamp(120px, 15vw, 180px) !important;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 4px solid white;
+  background-color: #00000033;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  transition: all 0.4s ease;
+  margin-bottom: -10rem;
+}
+
+.kjeg-logo:hover {
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.7);
+}
+
+.kjeg-episode-badge {
+  background: linear-gradient(135deg, #C8FF00, #A0D600);
+  color: #1a1a1a;
+  padding: clamp(0.3rem, 1vw, 0.4rem) clamp(0.8rem, 2vw, 1rem);
+  border-radius: 20px;
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 16px rgba(200, 255, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.kjeg-episode-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 255, 0, 0.4);
+}
+
+.kjeg-banner-content {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  right: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  z-index: 3;
+  pointer-events: auto;
+  gap: 1rem;
+}
+
+.kjeg-title {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 400;
+  color: white;
+  text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.9);
+  margin: 0;
+  font-family: 'Syne', sans-serif;
+  letter-spacing: -1px;
+  transition: all 0.4s ease;
+  line-height: 1.1;
+}
+
+.kjeg-title:hover {
+  text-shadow: 2px 2px 24px rgba(0, 0, 0, 1);
+  transform: translateY(-3px);
+}
+
+.kjeg-social-icons {
+  display: flex;
+  gap: clamp(0.8rem, 2vw, 1.5rem);
+  flex-shrink: 0;
+}
+
+.kjeg-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(40px, 8vw, 52px);
+  height: clamp(40px, 8vw, 52px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  font-size: clamp(16px, 4vw, 22px);
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.kjeg-social-link:hover {
+  transform: scale(1.15) translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ABOUT SECTION */
+.kjeg-about-section {
+  width: 100%;
+  max-width: 1280px;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.kjeg-about-title {
+  font-size: 2.5rem;
+  font-family: 'Syne', sans-serif;
+  font-weight: 500;
+  color: #C8FF00;
+  margin-bottom: 3rem;
+  letter-spacing: -1.5px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.kjeg-about-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 20%;
+  height: 2px;
+  background: linear-gradient(to right, #C8FF00, transparent);
+  transition: all 0.3s ease;
+}
+
+.kjeg-about-title:hover {
+  transform: translateX(10px);
+}
+
+.kjeg-about-grid {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.kjeg-about-textbox {
+  flex: 1;
+  background-color: #2B221C;
+  border-radius: 32px;
+  padding: 0;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  font-weight: 200;
+  opacity: 0.92;
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.kjeg-about-textbox:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.35);
+  opacity: 1;
+}
+
+.kjeg-about-header {
+  background: linear-gradient(135deg, #2B221C, #332821);
+  padding: 2rem 2.5rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.kjeg-about-icon {
+  flex-shrink: 0;
+}
+
+.kjeg-about-icon img {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.kjeg-about-meta {
+  flex: 1;
+}
+
+.kjeg-about-subtitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #C8FF00;
+  margin: -1rem 0 0rem 0;
+  letter-spacing: -0.5px;
+}
+
+.kjeg-about-stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.kjeg-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.kjeg-stat-number {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.kjeg-stat-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.kjeg-about-description {
+  padding: 2rem 2.5rem 2.5rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.kjeg-hosts {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 320px;
+  background-color: #2B221C;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s ease;
+}
+
+.kjeg-hosts:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.35);
+}
+
+.kjeg-hosts-header {
+  background: linear-gradient(135deg, #2B221C, #332821);
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.kjeg-hosts-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #C8FF00;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.kjeg-host {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.2rem 2rem;
+  border-radius: 0;
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: none;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.kjeg-host:last-child {
+  border-bottom: none;
+}
+
+.kjeg-host::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.02), transparent);
+  transition: left 0.5s ease;
+}
+
+.kjeg-host:hover::before {
+  left: 100%;
+}
+
+.kjeg-host:hover {
+  transform: translateX(8px);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.kjeg-host img {
+  width: 54px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+}
+
+.kjeg-host:hover img {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.kjeg-host-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.kjeg-host-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: white;
+}
+
+.kjeg-host-role {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+}
+
+/* EPISODES SECTION - ENHANCED RESPONSIVE */
+.kjeg-episodes-section {
+  width: 100%;
+  max-width: 1280px;
+  margin-top: 6rem;
+  padding: 0 1rem;
+}
+
+.kjeg-episodes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.kjeg-episodes-title {
+  font-size: 2.5rem;
+  font-family: 'Syne', sans-serif;
+  font-weight: 500;
+  color: #C8FF00;
+  margin: 0;
+  letter-spacing: -1.5px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.kjeg-episodes-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #C8FF00, transparent);
+  transition: all 0.3s ease;
+}
+
+.kjeg-episodes-title:hover {
+  transform: translateX(10px);
+}
+
+.kjeg-episodes-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.kjeg-episodes-count {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.kjeg-episodes-filter {
+  display: flex;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.3rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.kjeg-filter-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 400;
+}
+
+.kjeg-filter-btn.active,
+.kjeg-filter-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.kjeg-episodes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.kjeg-episode-item {
+  display: flex;
+  background-color: #2B221C;
+  border-radius: 24px;
+  padding: 1.5rem;
+  align-items: center;
+  max-width: 100%;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  gap: 1.5rem;
+}
+
+.kjeg-episode-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+  transition: left 0.6s ease;
+}
+
+.kjeg-episode-item:hover::before {
+  left: 100%;
+}
+
+.kjeg-episode-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.25);
+  background-color: #342921;
+}
+
+.kjeg-episode-item:focus {
+  outline: 2px solid rgba(200, 255, 0, 0.5);
+  outline-offset: 2px;
+}
+
+.kjeg-episode-number {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: 'Poppins', sans-serif;
+  min-width: 60px;
+  text-align: center;
+}
+
+.kjeg-episode-icon {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.kjeg-episode-icon img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s ease;
+}
+
+.kjeg-episode-item:hover .kjeg-episode-icon img {
+  transform: scale(1.03);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+
+.kjeg-episode-play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0.2rem;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.kjeg-episode-item:hover .kjeg-episode-play-overlay {
+  opacity: 1;
+}
+
+.kjeg-play-button {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #C8FF00, #A0D600);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+  transition: all 0.3s ease;
+  transform: scale(0.8);
+}
+
+.kjeg-episode-item:hover .kjeg-play-button {
+  transform: scale(1);
+}
+
+.kjeg-episode-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.kjeg-episode-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.kjeg-episode-date {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.kjeg-episode-duration {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.kjeg-episode-quote {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: white;
+  line-height: 1.4;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.kjeg-episode-item:hover .kjeg-episode-quote {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.kjeg-episode-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.kjeg-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #C8FF00, #A0D600);
+  color: #1a1a1a;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 18px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.kjeg-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 255, 0, 0.3);
+}
+
+.kjeg-action-btn.kjeg-secondary {
+  background: none;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.kjeg-action-btn.kjeg-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.kjeg-load-more-container {
+  display: flex;
+  gap: 1rem;
+  margin: 4rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.kjeg-load-more {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 32px;
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.kjeg-load-more::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.kjeg-load-more:hover::before {
+  left: 100%;
+}
+
+.kjeg-load-more:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+}
+
+.kjeg-show-less {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.shorts {
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.footer {
+  margin-top: 3rem;
+  width: 100%;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Large tablets and small desktops */
+@media (max-width: 1024px) {
+  .kjeg-banner-container {
+    border: 20px solid #2B221C;
+    border-radius: 16px;
+  }
+
+  .kjeg-logo-container {
+    left: 4%;
+  }
+
+  .kjeg-banner-content {
+    left: 4%;
+    right: 4%;
+    bottom: 4%;
+  }
+
+  /* Episodes responsive adjustments */
+  .kjeg-episodes-section {
+    margin-top: 4rem;
+  }
+
+  .kjeg-episodes-title {
+    font-size: clamp(2.2rem, 5vw, 3rem);
+  }
+
+  .kjeg-episode-item {
+    padding: 1.3rem;
+    gap: 1.3rem;
+  }
+
+  .kjeg-episode-icon img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .kjeg-episode-quote {
+    font-size: 1.3rem;
+  }
+
+  .kjeg-episode-number {
+    min-width: 50px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Standard tablets */
+@media (max-width: 768px) {
+  .kjeg-banner-wrapper {
+    margin-bottom: 2rem;
+  }
+
+  .kjeg-banner-container {
+    border: 15px solid #2B221C;
+    border-radius: 12px;
+    aspect-ratio: 4/3;
+  }
+
+  .kjeg-logo-container {
+    top: 35%;
+    left: 6%;
+  }
+
+  .kjeg-logo {
+    border-radius: 12px;
+    border: 3px solid white;
+  }
+
+  .kjeg-banner-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    bottom: 6%;
+    left: 6%;
+    right: 6%;
+  }
+
+  .kjeg-social-icons {
+    align-self: flex-end;
+  }
+
+  .kjeg-about-grid {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .kjeg-hosts {
+    min-width: unset;
+  }
+
+  .kjeg-host {
+    padding: 15px 25px;
+  }
+
+  .kjeg-episode-item {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .kjeg-episode-icon img {
+    width: 90px;
+    height: 90px;
+    margin-right: 1.2rem;
+  }
+
+  .kjeg-about-header {
+    padding: 1.5rem 2rem 1.2rem;
+  }
+
+  .kjeg-about-description {
+    padding: 1.5rem 2rem 2rem;
+  }
+
+  .kjeg-about-stats {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  /* Episodes tablet adjustments */
+  .kjeg-episodes-section {
+    margin-top: 3rem;
+  }
+
+  .kjeg-episodes-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .kjeg-about-title::after,
+  .kjeg-episodes-title::after {
+    bottom: -6px;
+    height: 1.5px;
+  }
+
+  .kjeg-episodes-meta {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .kjeg-episodes-filter {
+    align-self: flex-start;
+  }
+
+  .kjeg-episodes-title {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  .kjeg-episode-item {
+    padding: 1.2rem;
+    gap: 1.2rem;
+    border-radius: 20px;
+    flex-wrap: wrap;
+  }
+
+  .kjeg-episode-icon img {
+    width: 85px;
+    height: 85px;
+    border-radius: 16px;
+  }
+
+  .kjeg-episode-content {
+    gap: 0.8rem;
+  }
+
+  .kjeg-episode-quote {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .kjeg-episode-header {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .kjeg-episode-actions {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .kjeg-action-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .kjeg-load-more-container {
+    margin: 3rem 0;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .kjeg-banner-wrapper {
+    padding: 0 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .kjeg-banner-container {
+    border: 10px solid #2B221C;
+    border-radius: 10px;
+    aspect-ratio: 1/1;
+  }
+
+  .kjeg-logo-container {
+    top: 25%;
+    left: 8%;
+  }
+
+  .kjeg-logo {
+    border-radius: 10px;
+    border: 2px solid white;
+  }
+
+  .kjeg-banner-content {
+    bottom: 8%;
+    left: 8%;
+    right: 8%;
+    gap: 1rem;
+  }
+
+  .kjeg-title {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+    letter-spacing: -0.5px;
+  }
+
+  .kjeg-social-icons {
+    gap: 0.8rem;
+    align-self: flex-start;
+  }
+
+  .kjeg-load-more-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .kjeg-load-more {
+    padding: 0.8rem 2rem;
+  }
+
+  .kjeg-about-title {
+    font-size: 2rem;
+  }
+
+  /* Episodes mobile adjustments */
+  .kjeg-episodes-section {
+    margin-top: 5rem;
+  }
+
+  .kjeg-episodes-header {
+    font-size: 2rem !important;
+    margin-bottom: 1.5rem;
+  }
+
+  .kjeg-about-title::after {
+    bottom: -4px;
+    height: 1px;
+    width: 60%;
+  }
+
+  .kjeg-episodes-title::after {
+    bottom: -4px;
+    height: 1px;
+  }
+
+  .kjeg-episodes-title {
+    font-size: clamp(1.5rem, 7vw, 2.2rem);
+    letter-spacing: -1px;
+  }
+
+  .kjeg-episodes-filter {
+    padding: 0.25rem;
+    border-radius: 16px;
+  }
+
+  .kjeg-filter-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 12px;
+  }
+
+  .kjeg-episode-item {
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .kjeg-episode-number {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    min-width: auto;
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+  }
+
+  .kjeg-episode-icon {
+    align-self: center;
+  }
+
+  .kjeg-episode-icon img {
+    width: 150px;
+    height: 150px;
+    border-radius: 14px;
+    margin-left: 1rem;
+  }
+
+  .kjeg-play-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .kjeg-episode-content {
+    width: 100%;
+    gap: 0.7rem;
+  }
+
+  .kjeg-episode-quote {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .kjeg-episode-header {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .kjeg-episode-date {
+    font-size: 0.8rem;
+  }
+
+  .kjeg-episode-duration {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .kjeg-episode-actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .kjeg-action-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 0.7rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .kjeg-load-more-container {
+    flex-direction: column;
+    align-items: stretch;
+    margin: 2rem 0;
+  }
+
+  .kjeg-load-more {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 24px;
+  }
+
+  .kjeg-about-subtitle {
+    display: none;
+  }
+}
+
+/* Very small mobile devices */
+@media (max-width: 320px) {
+  .kjeg-banner-container {
+    border: 8px solid #2B221C;
+    border-radius: 8px;
+  }
+
+  .kjeg-logo-container {
+    top: 20%;
+    left: 10%;
+  }
+
+  .kjeg-banner-content {
+    bottom: 10%;
+    left: 10%;
+    right: 10%;
+  }
+
+  .kjeg-social-icons {
+    gap: 0.6rem;
+  }
+
+  /* Episodes very small mobile adjustments */
+  .kjeg-episodes-section {
+    padding: 0 0.5rem;
+  }
+
+  .kjeg-episodes-title {
+    font-size: clamp(1.3rem, 8vw, 1.8rem);
+  }
+
+  .kjeg-episode-item {
+    padding: 0.8rem;
+    gap: 0.8rem;
+  }
+
+  .kjeg-episode-number {
+    top: 0.8rem;
+    right: 0.8rem;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .kjeg-episode-icon img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .kjeg-episode-quote {
+    font-size: 1rem;
+  }
+
+  .kjeg-episode-actions {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .kjeg-action-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .kjeg-load-more {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}

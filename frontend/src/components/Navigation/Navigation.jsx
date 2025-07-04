@@ -29,40 +29,103 @@ export default function NavBar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
+  // Close menu when clicking outside or on a link
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuOpen && !event.target.closest('.navbar')) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [menuOpen]);
+
+  // Prevent body scroll when menu is open on mobile
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [menuOpen]);
+
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <nav className={`navbar ${isScrollingUp ? 'show' : 'hide'}`}>
-      <div className='navbarLeft'>
-        <div className='navbarLogo'>
-          <img src={logo} alt='Logo' />
+      <div className='navbarContainer'>
+        <div className='navbarLeft'>
+          <div className='navbarLogo'>
+            <img src={logo} alt='Logo' />
+          </div>
+
+          <div className={`navbarLinks ${menuOpen ? 'open' : ''}`}>
+            <NavLink
+              to="/"
+              className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+              onClick={handleLinkClick}
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/podcasts"
+              className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+              onClick={handleLinkClick}
+            >
+              Podcasts
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+              onClick={handleLinkClick}
+            >
+              About
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+              onClick={handleLinkClick}
+            >
+              Contact
+            </NavLink>
+          </div>
         </div>
 
-        <div className={`navbarLinks ${menuOpen ? 'open' : ''}`}>
-          <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-            Home
-          </NavLink>
-          <NavLink to="/podcasts" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-            Podcasts
-          </NavLink>
-          <NavLink to="/about" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-            About
-          </NavLink>
-          <NavLink to="/contact" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-            Contact
-          </NavLink>
+        <div className='navbarActions'>
+          <div className='navbarIcons'>
+            <button className='icon-btn' aria-label='Search'>
+              <img src={search} alt='Search' />
+            </button>
+            <button className='icon-btn' aria-label='Favorites'>
+              <img src={heart} alt='Heart' />
+            </button>
+            <button className='icon-btn' aria-label='User Profile'>
+              <img src={user} alt='User' />
+            </button>
+          </div>
+
+          <button
+            className={`burger ${menuOpen ? 'active' : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label='Toggle navigation menu'
+            aria-expanded={menuOpen}
+          >
+            <span className='bar'></span>
+            <span className='bar'></span>
+            <span className='bar'></span>
+          </button>
         </div>
       </div>
 
-      <div className='navbarActions'>
-        <img src={search} alt='Search' />
-        <img src={heart} alt='Heart' />
-        <img src={user} alt='User' />
-
-        <div className='burger' onClick={() => setMenuOpen(!menuOpen)}>
-          <div className='bar'></div>
-          <div className='bar'></div>
-          <div className='bar'></div>
-        </div>
-      </div>
+      {/* Mobile overlay */}
+      {menuOpen && <div className='mobile-overlay' onClick={() => setMenuOpen(false)}></div>}
     </nav>
   );
 }

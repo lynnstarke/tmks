@@ -1,59 +1,511 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 .shorts-card {
+  height: 470px;
   width: 100%;
-  max-width: 210px;           /* adjust as you like */
+  max-width: 230px;
   background: #3a2c23;
   padding: 0.75rem;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 0 0 2px #3a2c23;
+  box-shadow: 0 0 0 2px #3a2c23, 0 8px 32px rgba(0,0,0,0.3);
   font-family: 'Syne', sans-serif;
   color: #fff;
   display: flex;
   flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.shorts-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 2px #3a2c23, 0 12px 48px rgba(0,0,0,0.4);
 }
 
 .shorts-thumbnail {
   position: relative;
   width: 100%;
-  padding-top: 177.78%;       /* 16:9 portrait (9/16 = .5625 → 56.25% / landscape reversed → 177.78% ) */
+  padding-top: 177.78%; /* 16:9 portrait aspect ratio */
   overflow: hidden;
+  border-radius: 12px;
+  background: #2a1f18;
 }
 
 .shorts-thumbnail img {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: opacity 0.3s ease;
 }
 
-.shorts-logo {
+.image-placeholder {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  width: 48px;
-  height: 48px;
-  background: #fff;
-  border-radius: 8px;
-  padding: 4px;
-  object-fit: contain;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2a1f18;
+}
+
+.loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #555;
+  border-top: 2px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.image-error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #2a1f18;
+  color: #888;
+  font-size: 0.8rem;
+  gap: 0.5rem;
+}
+
+/* Hover Play Button - appears on hover and goes to YouTube */
+.hover-play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.shorts-card:hover .hover-play-overlay {
+  opacity: 1;
+}
+
+.hover-play-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(200, 255, 0, 0.95);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hover-play-button:hover {
+  background: rgba(200, 255, 0, 1);
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(200, 255, 0, 0.4);
+}
+
+.hover-play-button:active {
+  transform: scale(0.95);
+}
+
+/* Add subtle overlay on hover to darken background */
+.shorts-thumbnail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s ease;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.shorts-card:hover .shorts-thumbnail::before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.duration-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  z-index: 6;
+}
+
+.views-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.65rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 6;
+}
+
+.shorts-content {
+  padding-top: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .shorts-quote {
-  padding-top: 1rem;
   font-size: 1.1rem;
   line-height: 1.5;
   font-weight: 500;
   text-align: left;
   white-space: pre-wrap;
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* optional: if you want an emoji at the end to stay same size */
-.shorts-quote img, .shorts-quote svg {
+.shorts-meta {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
+  font-family: 'Syne', sans-serif;
+}
+
+.shorts-quote img,
+.shorts-quote svg {
   width: 1em;
   height: 1em;
   vertical-align: middle;
+}
+
+/* ─── RESPONSIVE BREAKPOINTS ─── */
+
+/* Large Desktop (1600px+) */
+@media (min-width: 1600px) {
+  .shorts-card {
+    max-width: 270px;
+    height: 520px;
+    padding: 1rem;
+  }
+
+  .shorts-quote {
+    font-size: 1.2rem;
+    -webkit-line-clamp: 4;
+  }
+
+  .hover-play-button {
+    width: 70px;
+    height: 70px;
+  }
+
+  .duration-badge,
+  .views-badge {
+    font-size: 0.75rem;
+  }
+}
+
+/* Desktop (1200px - 1599px) */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .shorts-card {
+    max-width: 230px;
+    height: 470px;
+    padding: 0.75rem;
+  }
+
+  .shorts-quote {
+    font-size: 1.1rem;
+    -webkit-line-clamp: 4;
+  }
+
+  .hover-play-button {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Computer/Laptop (1024px - 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .shorts-card {
+    max-width: 210px;
+    height: 450px;
+    padding: 0.75rem;
+  }
+
+  .shorts-quote {
+    font-size: 1rem;
+    -webkit-line-clamp: 4;
+  }
+
+  .hover-play-button {
+    width: 55px;
+    height: 55px;
+  }
+
+  .duration-badge,
+  .views-badge {
+    font-size: 0.65rem;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .shorts-card {
+    max-width: 240px;
+    height: 480px;
+    padding: 0.75rem;
+  }
+
+  .shorts-quote {
+    font-size: 1.05rem;
+    -webkit-line-clamp: 3;
+  }
+
+  .hover-play-button {
+    width: 55px;
+    height: 55px;
+  }
+
+  .duration-badge,
+  .views-badge {
+    font-size: 0.65rem;
+  }
+}
+
+/* Mobile Large (iPhone 14 Pro Max, etc.) (430px - 767px) */
+@media (min-width: 430px) and (max-width: 767px) {
+  .shorts-card {
+    max-width: 100%;
+    width: 100%;
+    height: 650px;
+    padding: 1.2rem;
+    border-radius: 20px;
+  }
+
+  .shorts-thumbnail {
+    border-radius: 16px;
+  }
+
+  .shorts-quote {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    -webkit-line-clamp: 3;
+    padding-top: 0.8rem;
+  }
+
+  .hover-play-button {
+    width: 75px;
+    height: 75px;
+  }
+
+  .duration-badge,
+  .views-badge {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+
+  .duration-badge {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .views-badge {
+    top: 15px;
+    right: 15px;
+  }
+
+  .loading-spinner {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Mobile Standard (iPhone 14, etc.) (375px - 429px) */
+@media (min-width: 375px) and (max-width: 429px) {
+  .shorts-card {
+    max-width: 100%;
+    width: 100%;
+    height: 570px;
+    padding: 1.1rem;
+    border-radius: 18px;
+  }
+
+  .shorts-thumbnail {
+    border-radius: 14px;
+  }
+
+  .shorts-quote {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    -webkit-line-clamp: 3;
+    padding-top: 0.7rem;
+  }
+
+  .hover-play-button {
+    width: 70px;
+    height: 70px;
+  }
+
+  .duration-badge,
+  .views-badge {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+
+  .duration-badge {
+    bottom: 12px;
+    right: 12px;
+  }
+
+  .views-badge {
+    top: 12px;
+    right: 12px;
+  }
+
+  .loading-spinner {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Small Mobile (320px - 374px) */
+@media (max-width: 374px) {
+  .shorts-card {
+    max-width: 100%;
+    width: 100%;
+    height: 580px;
+    padding: 1rem;
+    border-radius: 16px;
+  }
+
+  .shorts-thumbnail {
+    border-radius: 12px;
+  }
+
+  .shorts-quote {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    -webkit-line-clamp: 3;
+    padding-top: 0.6rem;
+  }
+
+  .hover-play-button {
+    width: 65px;
+    height: 65px;
+  }
+
+  .duration-badge,
+  .views-badge {
+    font-size: 0.7rem;
+    padding: 5px 8px;
+  }
+
+  .duration-badge {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .views-badge {
+    top: 10px;
+    right: 10px;
+  }
+
+  .loading-spinner {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* ─── ACCESSIBILITY & TOUCH OPTIMIZATIONS ─── */
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .shorts-card:hover {
+    transform: none;
+  }
+
+  .hover-play-overlay {
+    opacity: 1;
+  }
+
+  .hover-play-button {
+    width: 60px;
+    height: 60px;
+  }
+
+  .shorts-card:hover .hover-play-overlay {
+    opacity: 1;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .shorts-card,
+  .hover-play-button,
+  .shorts-thumbnail::before,
+  .hover-play-overlay {
+    transition: none;
+  }
+
+  .loading-spinner {
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .shorts-card {
+    border: 2px solid #fff;
+  }
+
+  .hover-play-button {
+    border: 2px solid #000;
+  }
+}
+
+/* Print styles */
+@media print {
+  .shorts-card {
+    height: auto;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .hover-play-overlay,
+  .duration-badge,
+  .views-badge {
+    display: none;
+  }
 }

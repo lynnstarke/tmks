@@ -1,0 +1,156 @@
+/* ContactCard.css */
+
+/* Card container */
+.contact-card {
+    background: rgba(43, 34, 28, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    padding: 2.5rem;
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  /* Rows */
+  .row {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .two-cols {
+    flex-wrap: wrap;
+  }
+  .two-cols input {
+    flex: 1 1 calc(50% - 0.75rem);
+  }
+
+  /* Base form controls */
+  input, textarea, select {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #E8E2DD;
+    box-sizing: border-box;
+    outline: none;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: rgba(232,226,221,0.7);
+  }
+  textarea {
+    resize: none;
+    min-height: 10rem;
+    padding-top: 1.25rem;
+    line-height: 1.5;
+  }
+
+  /* Email icon */
+  .icon-input {
+    position: relative;
+    align-items: center;
+  }
+  .icon-input svg {
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(232,226,221,0.7);
+  }
+  .icon-input input {
+    padding-left: 3rem;
+  }
+
+  /* Phone group inline */
+  .phone-group {
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* Country code select */
+  .phone-code {
+    position: relative;
+  }
+  .phone-code select {
+    appearance: none;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 2rem;
+    padding: 0.75rem 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #E8E2DD;
+    cursor: pointer;
+  }
+
+  /* thinner arrow */
+  .phone-code .dropdown-icon {
+    position: absolute;
+    left: 3.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: rgba(232,226,221,0.7);
+    font-size: 0.75rem; /* shrink the icon */
+  }
+
+  /* Divider */
+  .divider {
+    width: 1px;
+    height: 2rem;
+    background: rgba(255,255,255,0.4);
+  }
+
+  /* Phone input */
+  .phone-group input[type="tel"] {
+    flex: 1;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 2rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  /* Message counter */
+  .message-group {
+    position: relative;
+  }
+  .message-group textarea {
+    padding-bottom: 2.5rem;
+  }
+  .counter {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    font-size: 0.9rem;
+    color: rgba(232,226,221,0.7);
+  }
+
+  /* Submit button */
+  .send-button {
+    padding: 1rem;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .send-button:hover {
+    background: #eee;
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 600px) {
+    .row {
+      flex-direction: column;
+    }
+    .divider {
+      display: none;
+    }
+  }

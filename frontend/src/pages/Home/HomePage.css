@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@500;700&display=swap');
 
-/* === BASE STYLES === */
 .home {
   width: 100%;
   text-align: center;
@@ -9,7 +8,6 @@
   position: relative;
 }
 
-/* === HEADER SECTION === */
 .home-header {
   height: 100vh;
   min-height: 500px;
@@ -30,7 +28,6 @@
   width: 100%;
 }
 
-/* === TYPOGRAPHY === */
 .title-container {
   position: relative;
   margin-bottom: 1rem;
@@ -73,7 +70,6 @@
   font-weight: 300;
 }
 
-/* === IMPROVED BUTTON STYLES === */
 .cta-container {
   margin-bottom: 3rem;
 }
@@ -123,7 +119,6 @@
   transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Enhanced hover effects */
 .discover-btn:hover {
   background-color: #C8FF00;
   color: #0E0E0E;
@@ -153,7 +148,6 @@
   outline-offset: 4px;
 }
 
-/* Glow effect on hover */
 .discover-btn::before {
   content: '';
   position: absolute;
@@ -178,7 +172,6 @@
   to { transform: scale(1.05); opacity: 0.1; }
 }
 
-/* === LAYOUT SECTIONS === */
 .content {
   width: 100%;
   min-height: 100vh;
@@ -219,7 +212,6 @@
   margin-top: 1rem;
 }
 
-/* === CAVE ANIMATION === */
 .cave-overlay {
   position: fixed;
   top: 0;
@@ -250,7 +242,6 @@
   }
 }
 
-/* === BLUR OVERLAYS === */
 .top-blur-overlay,
 .bottom-blur-overlay {
   position: fixed;
@@ -403,9 +394,38 @@
   }
 }
 
-/* Hide footer on mobile and tablets */
 @media (max-width: 1024px) {
   .footer {
     display: none;
+  }
+}
+
+/* For iPhone 14 Pro and similar devices */
+@media (max-width: 480px) {
+  .podcasts {
+    padding: 0 !important;
+    margin-top: 0 !important;
+    margin-left: -1rem;
+  }
+
+  .podcasts > * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    margin-left: -0.5rem;
+  }
+}
+
+/* For standard mobile phones */
+@media (min-width: 481px) and (max-width: 768px) {
+  .podcasts {
+    padding: 0 !important;
+    margin-top: 0 !important;
+    margin-left: -1.5rem;
+  }
+
+  .podcasts > * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    margin-left: -0.75rem;
   }
 }

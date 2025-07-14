@@ -1,6 +1,3 @@
-/* ContactCard.css */
-
-/* Card container */
 .contact-card {
     background: rgba(43, 34, 28, 0.5);
     backdrop-filter: blur(10px);
@@ -15,7 +12,6 @@
     position: relative;
   }
 
-  /* Rows */
   .row {
     display: flex;
     gap: 1.5rem;
@@ -27,7 +23,6 @@
     flex: 1 1 calc(50% - 0.75rem);
   }
 
-  /* Base form controls */
   input, textarea, select {
     width: 100%;
     padding: 0.75rem 1.5rem;
@@ -51,7 +46,6 @@
     line-height: 1.5;
   }
 
-  /* Email icon */
   .icon-input {
     position: relative;
     align-items: center;
@@ -67,13 +61,11 @@
     padding-left: 3rem;
   }
 
-  /* Phone group inline */
   .phone-group {
     align-items: center;
     gap: 1rem;
   }
 
-  /* Country code select */
   .phone-code {
     position: relative;
   }
@@ -89,7 +81,6 @@
     cursor: pointer;
   }
 
-  /* thinner arrow */
   .phone-code .dropdown-icon {
     position: absolute;
     left: 3.5rem;
@@ -100,14 +91,12 @@
     font-size: 0.75rem; /* shrink the icon */
   }
 
-  /* Divider */
   .divider {
     width: 1px;
     height: 2rem;
     background: rgba(255,255,255,0.4);
   }
 
-  /* Phone input */
   .phone-group input[type="tel"] {
     flex: 1;
     border: 1px solid rgba(255,255,255,0.4);
@@ -115,7 +104,6 @@
     padding: 0.75rem 1.5rem;
   }
 
-  /* Message counter */
   .message-group {
     position: relative;
   }
@@ -130,7 +118,6 @@
     color: rgba(232,226,221,0.7);
   }
 
-  /* Submit button */
   .send-button {
     padding: 1rem;
     background: #fff;
@@ -145,7 +132,6 @@
     background: #eee;
   }
 
-  /* Responsive */
   @media screen and (max-width: 600px) {
     .row {
       flex-direction: column;

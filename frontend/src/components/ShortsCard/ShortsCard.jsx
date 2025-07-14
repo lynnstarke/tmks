@@ -26,7 +26,6 @@ export default function ShortsCard({
 
   const handlePlayClick = (e) => {
     e.stopPropagation();
-    // Navigate to YouTube when play button is clicked
     if (onNavigateToYouTube && youtubeUrl) {
       onNavigateToYouTube(youtubeUrl);
     }

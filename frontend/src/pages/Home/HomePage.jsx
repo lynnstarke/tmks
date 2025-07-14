@@ -11,20 +11,15 @@ export default function HomePage() {
   const [showCaveAnimation, setShowCaveAnimation] = useState(false);
 
   const handleDive = () => {
-    // Start black hole animation immediately
     setShowCaveAnimation(true);
 
-    // Start hiding header and scrolling near the end of the black hole animation
     setTimeout(() => {
       setDive(true);
-      // Scroll to podcasts section
       document.querySelector('.content').scrollIntoView({ behavior: 'smooth' });
-    }, 1500); // Start scroll at 1.5s (75% through 2s animation)
-
-    // Hide black hole animation after it completes
+    }, 1500);
     setTimeout(() => {
       setShowCaveAnimation(false);
-    }, 2000); // Hide after full 2s animation
+    }, 2000);
   };
 
   useEffect(() => {

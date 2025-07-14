@@ -91,7 +91,6 @@ const shorts = [
   },
 ];
 
-// Custom arrows with better accessibility and state management
 function NextArrow({ onClick, className }) {
   const isDisabled = className?.includes('slick-disabled');
 
@@ -129,14 +128,20 @@ export default function ShortsHome() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(5);
 
-  // Dynamic responsive settings based on screen size
   const getResponsiveSettings = () => {
     const width = window.innerWidth;
+
     if (width <= 480) return 1;
     if (width <= 768) return 2;
     if (width <= 1024) return 3;
     if (width <= 1300) return 4;
-    return 5;
+    if (width <= 1600) return 5;
+
+    if (width <= 1920) return 6;
+    if (width <= 2560) return 7;
+    if (width <= 3440) return 8;
+
+    return 9;
   };
 
   useEffect(() => {
@@ -160,6 +165,41 @@ export default function ShortsHome() {
     prevArrow: <PrevArrow />,
     beforeChange: (current, next) => setCurrentSlide(next),
     responsive: [
+      {
+        breakpoint: 5120,
+        settings: {
+          slidesToShow: 9,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 3440,
+        settings: {
+          slidesToShow: 8,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 2560,
+        settings: {
+          slidesToShow: 7,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1920,
+        settings: {
+          slidesToShow: 6,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        }
+      },
       {
         breakpoint: 1300,
         settings: {
@@ -191,19 +231,15 @@ export default function ShortsHome() {
     ],
   };
 
-  // Enhanced inline video playback with better UX
   const handlePlayInline = (shortData) => {
     console.log('Playing inline:', shortData);
   };
 
-  // Enhanced YouTube navigation with analytics
   const handleNavigateToYouTube = (youtubeUrl) => {
     console.log('Opening YouTube:', youtubeUrl);
 
-    // Opens YouTube in a new tab with better security
     const newWindow = window.open(youtubeUrl, '_blank', 'noopener,noreferrer');
 
-    // Fallback if popup blocked
     if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
       console.warn('Popup blocked, redirecting in same tab');
       window.location.href = youtubeUrl;

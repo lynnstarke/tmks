@@ -13,15 +13,12 @@ export default function Footer() {
     if (!email || !isChecked) return;
 
     setIsSubmitting(true);
-    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
 
-    // Reset form
     setEmail('');
     setIsChecked(false);
     setIsSubmitting(false);
 
-    // You could add success notification here
     console.log('Newsletter subscription submitted:', email);
   };
 

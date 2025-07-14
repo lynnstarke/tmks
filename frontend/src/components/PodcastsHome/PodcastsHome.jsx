@@ -9,7 +9,6 @@ import rondjeLogo from '../../assets/images/podcastImage2.png';
 export default function PodcastsHome() {
   const [isMobile, setIsMobile] = useState(false);
 
-  // Check if screen is mobile size
   useEffect(() => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth <= 480);

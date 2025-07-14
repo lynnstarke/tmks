@@ -30,7 +30,7 @@ html, body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1350px;
+  max-width: 1800px;
   margin: 0 auto;
   padding: 1rem 2rem;
 }
@@ -166,18 +166,45 @@ html, body {
   display: none;
 }
 
-/* Tablet styles */
-@media screen and (max-width: 1024px) {
+/* Ultra-wide desktop styles (1600px+) */
+@media screen and (min-width: 1600px) {
   .navbarContainer {
-    padding: 1rem 2.5rem;
+    padding: 1.5rem 4rem;
   }
 
   .navbarLeft {
-    gap: 2rem;
+    gap: 5rem;
   }
 
   .navbarLinks {
+    gap: 3rem;
+  }
+
+  .nav-link {
+    font-size: 1.2rem;
+  }
+
+  .navbarActions {
     gap: 1.5rem;
+  }
+
+  .navbarIcons {
+    gap: 1.5rem;
+  }
+}
+
+/* Large desktop styles (1200px - 1599px) */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+  .navbarContainer {
+    padding: 1.5rem 4rem;
+  }
+
+  .navbarLeft {
+    gap: 4rem;
+  }
+
+  .navbarLinks {
+    gap: 2.5rem;
   }
 }
 
@@ -193,6 +220,21 @@ html, body {
 
   .navbarLinks {
     gap: 2rem;
+  }
+}
+
+/* Tablet styles */
+@media screen and (max-width: 1024px) {
+  .navbarContainer {
+    padding: 1rem 2.5rem;
+  }
+
+  .navbarLeft {
+    gap: 2rem;
+  }
+
+  .navbarLinks {
+    gap: 1.5rem;
   }
 }
 
@@ -305,20 +347,5 @@ html, body {
   .icon-btn img {
     height: 1.2rem;
     width: 1.2rem;
-  }
-}
-
-/* Large desktop styles */
-@media screen and (min-width: 1200px) {
-  .navbarContainer {
-    padding: 1.5rem 3rem;
-  }
-
-  .navbarLeft {
-    gap: 4rem;
-  }
-
-  .navbarLinks {
-    gap: 2.5rem;
   }
 }

@@ -11,15 +11,14 @@ export default function NavBar() {
   const [isScrollingUp, setIsScrollingUp] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  // Scroll handler
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsScrollingUp(false); // scrolling down
+        setIsScrollingUp(false);
       } else {
-        setIsScrollingUp(true); // scrolling up
+        setIsScrollingUp(true);
       }
 
       setLastScrollY(currentScrollY);
@@ -29,7 +28,6 @@ export default function NavBar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  // Close menu when clicking outside or on a link
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuOpen && !event.target.closest('.navbar')) {
@@ -41,7 +39,6 @@ export default function NavBar() {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [menuOpen]);
 
-  // Prevent body scroll when menu is open on mobile
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';

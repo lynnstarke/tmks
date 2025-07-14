@@ -16,7 +16,7 @@ html, body {
   max-width: 100vw;
   margin: 0 auto;
   padding: 0rem 5rem 6rem 4.3rem;
-  overflow-x: hidden; /* Changed from visible to hidden */
+  overflow-x: hidden;
   width: 100%;
 }
 
@@ -24,7 +24,7 @@ html, body {
 .swiper-clipper {
   padding-left: 0;
   padding-right: 0;
-  overflow-x: hidden; /* Changed from visible to hidden */
+  overflow-x: visible; /* Changed back to visible for hover effects */
   box-sizing: content-box;
   text-align: left;
   width: 100%;
@@ -59,12 +59,12 @@ html, body {
 .podcasts-list {
   display: flex;
   gap: 2rem;
-  padding: 1rem 0;
+  padding: 1rem 0 2rem 0; /* Added extra bottom padding to accommodate hover effect */
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  overflow-x: hidden;
+  overflow: visible; /* Allow overflow for hover effects */
 }
 
 /* Remove link styling */
@@ -87,6 +87,8 @@ html, body {
 
 .podcasts-list a:hover {
   transform: translateY(-5px);
+  z-index: 10;
+  position: relative;
 }
 
 /* ─── Responsive Adjustments ─── */
@@ -95,7 +97,7 @@ html, body {
 @media (min-width: 1600px) {
   .carousel-wrapper {
     max-width: 90%;
-    padding: 10rem 5rem 12rem;
+    padding: 10rem 1rem 12rem;
   }
 
   .carousel-heading {
@@ -105,6 +107,7 @@ html, body {
 
   .podcasts-list {
     gap: 3rem;
+    padding: 1rem 0 3rem 0;
   }
 }
 
@@ -122,6 +125,7 @@ html, body {
 
   .podcasts-list {
     gap: 2.5rem;
+    padding: 1rem 0 2.5rem 0;
   }
 }
 
@@ -164,6 +168,7 @@ html, body {
     gap: 2rem;
     justify-content: center;
     flex-wrap: nowrap;
+    overflow: visible;
   }
 }
 
@@ -182,13 +187,14 @@ html, body {
   .podcasts-list {
     gap: 1.5rem;
     justify-content: center;
+    overflow: visible;
   }
 }
 
 /* Tablet Portrait */
 @media (max-width: 768px) {
   .carousel-wrapper {
-    padding: 4rem 2rem 6rem; /* Increased padding for better spacing */
+    padding: 4rem 2rem 6rem;
   }
 
   .carousel-heading {
@@ -204,14 +210,14 @@ html, body {
 
   .podcasts-list a {
     width: 100%;
-    max-width: 400px; /* Reduced from 600px to 400px */
+    max-width: 400px;
   }
 }
 
 /* Large Mobile (481px - 640px) */
 @media (min-width: 481px) and (max-width: 640px) {
   .carousel-wrapper {
-    padding: 3.5rem 2rem 5rem; /* Increased padding */
+    padding: 3.5rem 2rem 5rem;
   }
 
   .carousel-heading {
@@ -227,14 +233,14 @@ html, body {
 
   .podcasts-list a {
     width: 100%;
-    max-width: 320px; /* Reduced from 400px to 320px */
+    max-width: 320px;
   }
 }
 
 /* Mobile Standard (375px - 480px) */
 @media (min-width: 375px) and (max-width: 480px) {
   .carousel-wrapper {
-    padding: 3rem 2rem 4rem; /* Increased padding for better spacing */
+    padding: 3rem 2rem 4rem;
   }
 
   .carousel-heading {
@@ -255,18 +261,16 @@ html, body {
 
   .podcasts-list a {
     width: 100%;
-    max-width: 280px; /* Reduced from 350px to 280px */
+    max-width: 280px;
   }
 }
 
-/* Focus and Accessibility */
 .podcasts-list a:focus-visible {
   outline: 2px solid #C8FF00;
   outline-offset: 2px;
   border-radius: 8px;
 }
 
-/* Smooth transitions */
 .carousel-wrapper * {
   transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }

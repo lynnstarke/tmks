@@ -9,7 +9,6 @@ import rondjeLogo from '../../assets/images/podcastImage2.png';
 export default function Podcasts() {
   const [isMobile, setIsMobile] = useState(false);
 
-  // Check if screen is mobile size
   useEffect(() => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth <= 480);
@@ -26,7 +25,7 @@ export default function Podcasts() {
       id: 'kjeg',
       logo: kjeLogo,
       title: 'KieftJansenEgmondGijp',
-      mobileTitle: 'KJEG', // Add mobile title
+      mobileTitle: 'KJEG',
       episodeCount: 52,
       schedule: 'Weekly Shows',
       path: '/podcasts/kjeg'
@@ -35,7 +34,7 @@ export default function Podcasts() {
       id: 'rondje-rob',
       logo: rondjeLogo,
       title: 'Rondje Rob',
-      mobileTitle: 'Rondje Rob', // Same title for mobile
+      mobileTitle: 'Rondje Rob',
       episodeCount: 28,
       schedule: 'Bi-weekly',
       path: '/podcasts/rondje-rob'
